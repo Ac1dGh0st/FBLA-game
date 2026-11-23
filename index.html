@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reto League</title>
+
+    <!-- Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="game-container">
+
+  <!-- top bar-->
+    <div class="top-bar">
+        <span>★ RETRO LEAGUE ★</span>
+        <span class="season">SEASON 01</span>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="floating-icons">
+            <span>🏈</span>
+            <span>⚽</span>
+            <span>🏀</span>
+            <span>⚾</span>
+        </div>
+
+        <div class="stars">★ ★ ★ ★ ★</div>
+
+        <h1>RETRO<br>LEAGUE</h1>
+
+        <p class="subtitle">
+            YOUR CAREER. YOUR TEAM. YOUR LEGACY.
+        </p>
+
+    </header>
+
+    <!-- scoreboard -->
+    <div class="scoreboard">
+        <span>NEW PLAYER</span>
+        <span>WEEK 01</span>
+        <span>READY?</span>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="selectionScreen">
+
+
+        <!-- USERNAME -->
+        <section class="section">
+
+            <h2>01 / PLAYER NAME</h2>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="ENTER USERNAME..."
+                maxlength="16"
+            >
+
+        </section>
+
+
+        <!-- SPORT SELECTION -->
+        <section class="section">
+
+            <h2>02 / SELECT YOUR SPORT</h2>
+
+            <div class="sports-grid">
+
+    <button class="sport-card active"
+        onclick="selectSport('football', this)">
+        <span class="sport-icon">🏈</span>
+        <span>FOOTBALL</span>
+    </button>
+
+    <button class="sport-card"
+        onclick="selectSport('soccer', this)">
+        <span class="sport-icon">⚽</span>
+        <span>SOCCER</span>
+    </button>
+
+    <button class="sport-card"
+        onclick="selectSport('basketball', this)">
+        <span class="sport-icon">🏀</span>
+        <span>BASKETBALL</span>
+    </button>
+
+    <button class="sport-card"
+        onclick="selectSport('baseball', this)">
+        <span class="sport-icon">⚾</span>
+        <span>BASEBALL</span>
+    </button>
+
+</div>
+
+        <section class="section">
+    <h2>03 / SELECT YOUR DIVISION</h2>
+    <div class="division-grid" id="divisionGrid"></div>
+</section>
+
+<section class="section">
+    <h2>04 / CHOOSE YOUR NEW YORK SCHOOL</h2>
+    <div class="team-grid" id="teamGrid"></div>
+</section>
+
+
+        <!-- PLAYER PREVIEW -->
+        <section class="player-preview">
+
+            <div class="preview-heading">
+                PLAYER CARD / PREVIEW
+            </div>
+
+            <div class="trophy">🏆</div>
+
+            <h3 id="previewTeam">BUFFALO BILLS</h3>
+
+            <p id="previewDetails">
+                FOOTBALL / YOUR CAREER STARTS HERE
+            </p>
+
+            <div class="preview-stats">
+                <span>ROOKIE</span>
+                <span>OVR: 50</span>
+                <span>LVL: 01</span>
+            </div>
+
+        </section>
+
+
+        <!-- START BUTTON -->
+       <button class="start-button" onclick="startSeason()">
+         START SEASON
+       </button>
+
+    </main>
+<!-- ACTUAL FOOTBALL GAME SCREEN -->
+<section id="gameScreen" class="game-screen" style="display:none;">
+
+    <div class="game-top">
+        <h2>🏈 RETRO LEAGUE</h2>
+        <p id="gameTeam">BUFFALO BILLS</p>
+    </div>
+
+    <div class="game-scoreboard">
+        <div>
+            <span id="scoreTeam">BILLS</span>
+            <strong id="score">0</strong>
+        </div>
+        <div>
+            <span>DOWN</span>
+            <strong id="down">1</strong>
+        </div>
+        <div>
+            <span>YARDS TO GO</span>
+            <strong id="yards">10</strong>
+        </div>
+        <div>
+            <span>QUARTER</span>
+            <strong id="quarter">1</strong>
+        </div>
+    </div>
+
+    <!-- PRE-GAME SCREEN -->
+    <div id="gameIntro" class="game-intro">
+        <div style="font-size:65px;">🏈</div>
+        <h2>ARE YOU READY?</h2>
+        <p id="introTeam">BUFFALO BILLS</p>
+        <p>YOUR FIRST DRIVE STARTS NOW!</p>
+
+        <button class="start-button" onclick="beginFootballGame()">
+            ▶ START GAME
+        </button>
+    </div>
+
+    <!-- PLAYING SCREEN -->
+    <div id="playingArea" style="display:none;">
+
+        <div class="field-container">
+            <canvas id="footballCanvas" width="800" height="450"></canvas>
+        </div>
+
+        <div class="game-message" id="gameMessage">
+            MOVE YOUR QUARTERBACK!
+        </div>
+
+        <div class="game-controls">
+            <h3>CONTROLS</h3>
+            <p>W A S D / ARROW KEYS - MOVE QB</p>
+            <p>MOUSE - AIM PASS</p>
+            <p>CLICK / SPACE - THROW BALL</p>
+        </div>
+
+        <button class="start-button" onclick="resetDrive()">
+            ↻ RESTART PLAY
+        </button>
+
+    </div>
+
+    <button class="back-button" onclick="backToCareer()">
+        ← BACK TO CAREER
+    </button>
+
+</section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <p>★ RETRO LEAGUE ★</p>
+
+        <p>BUILT FOR LEGENDS. POWERED BY PIXELS.</p>
+
+    </footer>
+
+</div>
+<script src="script.js"></script>
+
+
+</body>
+</html>
