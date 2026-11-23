@@ -6,12 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reto League</title>
+    <meta name="theme-color" content="#2863ff">
+    <meta name="description" content="Retro League - Your career. Your team. Your legacy.">
+
+    <title>Retro League</title>
 
     <!-- Pixel Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+    >
 
-    <!-- CSS File -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -19,13 +25,23 @@
 
 <div class="game-container">
 
-  <!-- top bar-->
+    <!-- =================================
+         TOP BAR
+    ================================== -->
+
     <div class="top-bar">
+
         <span>★ RETRO LEAGUE ★</span>
+
         <span class="season">SEASON 01</span>
+
     </div>
 
-    <!-- HEADER -->
+
+    <!-- =================================
+         MAIN HEADER
+    ================================== -->
+
     <header class="header">
 
         <div class="floating-icons">
@@ -37,7 +53,10 @@
 
         <div class="stars">★ ★ ★ ★ ★</div>
 
-        <h1>RETRO<br>LEAGUE</h1>
+        <h1>
+            RETRO<br>
+            LEAGUE
+        </h1>
 
         <p class="subtitle">
             YOUR CAREER. YOUR TEAM. YOUR LEGACY.
@@ -45,77 +64,132 @@
 
     </header>
 
-    <!-- scoreboard -->
+
+    <!-- =================================
+         SCOREBOARD
+    ================================== -->
+
     <div class="scoreboard">
+
         <span>NEW PLAYER</span>
+
         <span>WEEK 01</span>
+
         <span>READY?</span>
+
     </div>
 
-    <!-- MAIN CONTENT -->
+
+    <!-- =================================
+         SCREEN 1: PLAYER SELECTION
+    ================================== -->
+
     <main class="main-content" id="selectionScreen">
 
+        <!-- PLAYER NAME -->
 
-        <!-- USERNAME -->
         <section class="section">
 
             <h2>01 / PLAYER NAME</h2>
+
+            <label for="username" class="visually-hidden">
+                Enter your player name
+            </label>
 
             <input
                 type="text"
                 id="username"
                 placeholder="ENTER USERNAME..."
                 maxlength="16"
+                autocomplete="nickname"
             >
 
         </section>
 
 
         <!-- SPORT SELECTION -->
+
         <section class="section">
 
             <h2>02 / SELECT YOUR SPORT</h2>
 
             <div class="sports-grid">
 
-    <button class="sport-card active"
-        onclick="selectSport('football', this)">
-        <span class="sport-icon">🏈</span>
-        <span>FOOTBALL</span>
-    </button>
+                <button
+                    type="button"
+                    class="sport-card active"
+                    onclick="selectSport('football', this)"
+                    aria-label="Select football"
+                >
+                    <span class="sport-icon">🏈</span>
+                    <span>FOOTBALL</span>
+                </button>
 
-    <button class="sport-card"
-        onclick="selectSport('soccer', this)">
-        <span class="sport-icon">⚽</span>
-        <span>SOCCER</span>
-    </button>
+                <button
+                    type="button"
+                    class="sport-card"
+                    onclick="selectSport('soccer', this)"
+                    aria-label="Select soccer"
+                >
+                    <span class="sport-icon">⚽</span>
+                    <span>SOCCER</span>
+                </button>
 
-    <button class="sport-card"
-        onclick="selectSport('basketball', this)">
-        <span class="sport-icon">🏀</span>
-        <span>BASKETBALL</span>
-    </button>
+                <button
+                    type="button"
+                    class="sport-card"
+                    onclick="selectSport('basketball', this)"
+                    aria-label="Select basketball"
+                >
+                    <span class="sport-icon">🏀</span>
+                    <span>BASKETBALL</span>
+                </button>
 
-    <button class="sport-card"
-        onclick="selectSport('baseball', this)">
-        <span class="sport-icon">⚾</span>
-        <span>BASEBALL</span>
-    </button>
+                <button
+                    type="button"
+                    class="sport-card"
+                    onclick="selectSport('baseball', this)"
+                    aria-label="Select baseball"
+                >
+                    <span class="sport-icon">⚾</span>
+                    <span>BASEBALL</span>
+                </button>
 
-</div>
+            </div>
+
+        </section>
+
+
+        <!-- DIVISION SELECTION -->
 
         <section class="section">
-    <h2>03 / SELECT YOUR DIVISION</h2>
-    <div class="division-grid" id="divisionGrid"></div>
-</section>
 
-<section class="section">
-    <h2>04 / CHOOSE YOUR NEW YORK SCHOOL</h2>
-    <div class="team-grid" id="teamGrid"></div>
-</section>
+            <h2>03 / SELECT YOUR DIVISION</h2>
+
+            <div
+                class="division-grid"
+                id="divisionGrid"
+            ></div>
+
+        </section>
+
+
+        <!-- TEAM SELECTION -->
+
+        <section class="section">
+
+            <h2>04 / CHOOSE YOUR NEW YORK SCHOOL</h2>
+
+            <div
+                class="team-grid"
+                id="teamGrid"
+            ></div>
+
+        </section>
 
 
         <!-- PLAYER PREVIEW -->
+
         <section class="player-preview">
 
             <div class="preview-heading">
@@ -124,108 +198,519 @@
 
             <div class="trophy">🏆</div>
 
-            <h3 id="previewTeam">BUFFALO BILLS</h3>
+            <h3 id="previewTeam">
+                BALDWIN HIGH SCHOOL
+            </h3>
 
             <p id="previewDetails">
                 FOOTBALL / YOUR CAREER STARTS HERE
             </p>
 
             <div class="preview-stats">
+
                 <span>ROOKIE</span>
+
                 <span>OVR: 50</span>
+
                 <span>LVL: 01</span>
+
             </div>
 
         </section>
 
 
-        <!-- START BUTTON -->
-       <button class="start-button" onclick="startSeason()">
-         START SEASON
-       </button>
+        <!-- START SEASON -->
+
+        <button
+            type="button"
+            class="start-button"
+            onclick="startSeason()"
+        >
+            START SEASON
+        </button>
 
     </main>
-<!-- ACTUAL FOOTBALL GAME SCREEN -->
-<section id="gameScreen" class="game-screen" style="display:none;">
 
-    <div class="game-top">
-        <h2>🏈 RETRO LEAGUE</h2>
-        <p id="gameTeam">BUFFALO BILLS</p>
-    </div>
 
-    <div class="game-scoreboard">
-        <div>
-            <span id="scoreTeam">BILLS</span>
-            <strong id="score">0</strong>
-        </div>
-        <div>
-            <span>DOWN</span>
-            <strong id="down">1</strong>
-        </div>
-        <div>
-            <span>YARDS TO GO</span>
-            <strong id="yards">10</strong>
-        </div>
-        <div>
-            <span>QUARTER</span>
-            <strong id="quarter">1</strong>
-        </div>
-    </div>
+    <!-- =================================
+         SCREEN 2: SEASON DASHBOARD
+    ================================== -->
 
-    <!-- PRE-GAME SCREEN -->
-    <div id="gameIntro" class="game-intro">
-        <div style="font-size:65px;">🏈</div>
-        <h2>ARE YOU READY?</h2>
-        <p id="introTeam">BUFFALO BILLS</p>
-        <p>YOUR FIRST DRIVE STARTS NOW!</p>
+    <section
+        id="seasonScreen"
+        class="season-screen"
+        style="display:none;"
+        aria-label="Season dashboard"
+    >
 
-        <button class="start-button" onclick="beginFootballGame()">
-            ▶ START GAME
+        <!-- DASHBOARD HEADER -->
+
+        <div class="season-header">
+
+            <div>
+
+                <p class="pixel-label">
+                    RETRO LEAGUE / CAREER MODE
+                </p>
+
+                <h2>🏈 SEASON CENTRAL</h2>
+
+                <p id="dashboardPlayer">
+                    PLAYER: ROOKIE
+                </p>
+
+            </div>
+
+            <div class="season-badge">
+                SEASON 01
+            </div>
+
+        </div>
+
+
+        <!-- SEASON INFORMATION -->
+
+        <div class="season-week">
+
+            <div>
+
+                <small>YOUR DIVISION</small>
+
+                <h3 id="dashboardDivision">
+                    CLASS AA
+                </h3>
+
+            </div>
+
+            <div>
+
+                <small>CURRENT WEEK</small>
+
+                <h3 id="dashboardWeek">
+                    WEEK 01
+                </h3>
+
+            </div>
+
+            <div>
+
+                <small>YOUR RECORD</small>
+
+                <h3 id="dashboardRecord">
+                    0 - 0
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- DASHBOARD PANELS -->
+
+        <div class="dashboard-grid">
+
+
+            <!-- NEXT MATCHUP -->
+
+            <div class="dashboard-panel matchup-panel">
+
+                <h3>NEXT MATCHUP</h3>
+
+                <div class="matchup-content">
+
+                    <div class="matchup-team">
+
+                        <span>🏆</span>
+
+                        <h2 id="dashboardTeam">
+                            YOUR TEAM
+                        </h2>
+
+                        <small>HOME TEAM</small>
+
+                    </div>
+
+                    <div class="versus">
+                        VS
+                    </div>
+
+                    <div class="matchup-team">
+
+                        <span>⚔️</span>
+
+                        <h2 id="dashboardOpponent">
+                            OPPONENT
+                        </h2>
+
+                        <small>AWAY TEAM</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="matchup-info">
+
+                    <span>
+                        WEEK
+                        <span id="matchupWeek">01</span>
+                    </span>
+
+                    <span>REGULAR SEASON</span>
+
+                </div>
+
+
+                <!-- NEXT GAME BUTTON -->
+
+                <button
+                    type="button"
+                    class="dashboard-start"
+                    onclick="openGameDay()"
+                >
+                    ▶ NEXT GAME
+                </button>
+
+            </div>
+
+
+            <!-- TEAM STATUS -->
+
+            <div class="dashboard-panel">
+
+                <h3>TEAM STATUS</h3>
+
+                <div class="status-item">
+
+                    <span>FAN SUPPORT</span>
+
+                    <strong id="fanSupport">75%</strong>
+
+                </div>
+
+                <div class="status-bar">
+                    <div id="fanBar"></div>
+                </div>
+
+
+                <div class="status-item">
+
+                    <span>TEAM MORALE</span>
+
+                    <strong id="teamMorale">80%</strong>
+
+                </div>
+
+                <div class="status-bar">
+                    <div id="moraleBar"></div>
+                </div>
+
+
+                <div class="status-item">
+
+                    <span>TEAM RATING</span>
+
+                    <strong id="teamRating">65 OVR</strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- CLASS STANDINGS -->
+
+            <div class="dashboard-panel standings-panel">
+
+                <h3>CLASS STANDINGS</h3>
+
+                <div class="standings-heading">
+
+                    <span>TEAM</span>
+
+                    <span>W</span>
+
+                    <span>L</span>
+
+                </div>
+
+                <div id="standingsList"></div>
+
+            </div>
+
+
+            <!-- SEASON SCHEDULE -->
+
+            <div class="dashboard-panel">
+
+                <h3>SEASON SCHEDULE</h3>
+
+                <div id="scheduleList"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DASHBOARD BOTTOM -->
+
+        <div class="dashboard-bottom">
+
+            <div>
+
+                <small>YOUR CAREER STARTS HERE</small>
+
+                <h2 id="dashboardSchool">
+                    HIGH SCHOOL FOOTBALL
+                </h2>
+
+            </div>
+
+            <button
+                type="button"
+                onclick="backToCareer()"
+                class="dashboard-back"
+            >
+                CHANGE TEAM
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         SCREEN 3: FOOTBALL GAME
+    ================================== -->
+
+    <section
+        id="gameScreen"
+        class="game-screen"
+        style="display:none;"
+        aria-label="Football game"
+    >
+
+
+        <!-- GAME HEADER -->
+
+        <div class="game-top">
+
+            <h2>🏈 RETRO LEAGUE</h2>
+
+            <p id="gameTeam">
+                YOUR TEAM
+            </p>
+
+            <p>
+                VS
+                <span id="gameOpponent">
+                    OPPONENT
+                </span>
+            </p>
+
+        </div>
+
+
+        <!-- GAME SCOREBOARD -->
+
+        <div class="game-scoreboard">
+
+
+            <div>
+
+                <span id="scoreTeam">
+                    HOME
+                </span>
+
+                <strong id="score">0</strong>
+
+            </div>
+
+
+            <div>
+
+                <span>OPPONENT</span>
+
+                <strong id="opponentScore">0</strong>
+
+            </div>
+
+
+            <div>
+
+                <span>DOWN</span>
+
+                <strong id="down">1</strong>
+
+            </div>
+
+
+            <div>
+
+                <span>YARDS TO GO</span>
+
+                <strong id="yards">10</strong>
+
+            </div>
+
+
+            <div>
+
+                <span>QUARTER</span>
+
+                <strong id="quarter">1</strong>
+
+            </div>
+
+
+            <div>
+
+                <span>GAME CLOCK</span>
+
+                <strong id="gameClock">2:00</strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             PRE-GAME INTRODUCTION
+        ================================== -->
+
+        <div
+            id="gameIntro"
+            class="game-intro"
+        >
+
+            <div style="font-size:65px;">
+                🏈
+            </div>
+
+            <h2>ARE YOU READY?</h2>
+
+            <p id="introTeam">
+                YOUR TEAM
+            </p>
+
+            <p>
+                YOUR FIRST DRIVE STARTS NOW!
+            </p>
+
+
+            <button
+                type="button"
+                class="start-button"
+                onclick="beginFootballGame()"
+            >
+                ▶ START GAME
+            </button>
+
+        </div>
+
+
+        <!-- =================================
+             LIVE FOOTBALL GAME
+        ================================== -->
+
+        <div
+            id="playingArea"
+            style="display:none;"
+        >
+
+
+            <!-- FOOTBALL FIELD -->
+
+            <div class="field-container">
+
+                <canvas
+                    id="footballCanvas"
+                    width="800"
+                    height="450"
+                    aria-label="Interactive football field. Use the keyboard to move your quarterback and aim with your mouse or touch."
+                ></canvas>
+
+            </div>
+
+
+            <!-- GAME MESSAGE -->
+
+            <div
+                class="game-message"
+                id="gameMessage"
+                aria-live="polite"
+            >
+                MOVE YOUR QUARTERBACK!
+            </div>
+
+
+            <!-- CONTROLS -->
+
+            <div class="game-controls">
+
+                <h3>CONTROLS</h3>
+
+                <p>
+                    W A S D / ARROW KEYS - MOVE QB
+                </p>
+
+                <p>
+                    MOUSE - AIM PASS
+                </p>
+
+                <p>
+                    CLICK / SPACE - THROW BALL
+                </p>
+
+            </div>
+
+
+            <!-- RESTART PLAY -->
+
+            <button
+                type="button"
+                class="start-button"
+                onclick="resetDrive()"
+            >
+                ↻ RESTART PLAY
+            </button>
+
+        </div>
+
+
+        <!-- BACK BUTTON -->
+
+        <button
+            type="button"
+            class="back-button"
+            onclick="backToCareer()"
+        >
+            ← BACK TO CAREER
         </button>
-    </div>
 
-    <!-- PLAYING SCREEN -->
-    <div id="playingArea" style="display:none;">
+    </section>
 
-        <div class="field-container">
-            <canvas id="footballCanvas" width="800" height="450"></canvas>
-        </div>
 
-        <div class="game-message" id="gameMessage">
-            MOVE YOUR QUARTERBACK!
-        </div>
+    <!-- =================================
+         FOOTER
+    ================================== -->
 
-        <div class="game-controls">
-            <h3>CONTROLS</h3>
-            <p>W A S D / ARROW KEYS - MOVE QB</p>
-            <p>MOUSE - AIM PASS</p>
-            <p>CLICK / SPACE - THROW BALL</p>
-        </div>
-
-        <button class="start-button" onclick="resetDrive()">
-            ↻ RESTART PLAY
-        </button>
-
-    </div>
-
-    <button class="back-button" onclick="backToCareer()">
-        ← BACK TO CAREER
-    </button>
-
-</section>
-
-    <!-- FOOTER -->
     <footer class="footer">
 
         <p>★ RETRO LEAGUE ★</p>
 
-        <p>BUILT FOR LEGENDS. POWERED BY PIXELS.</p>
+        <p>
+            BUILT FOR LEGENDS. POWERED BY PIXELS.
+        </p>
 
     </footer>
 
 </div>
+
+
+<!-- JAVASCRIPT -->
+
 <script src="script.js"></script>
 
-
 </body>
+
 </html>
