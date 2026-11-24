@@ -1,3 +1,9 @@
+/* ==================================================
+   1. COLORS AND BASIC SETTINGS
+   ================================================== */
+
+/* These variables store the main colors used throughout
+   the website. Change a color here to update it everywhere. */
 
 :root {
     --blue: #2863ff;
@@ -9,11 +15,16 @@
     --green: #22e64c;
 }
 
+/* Removes default spacing and makes element sizes easier
+   to calculate. This applies to every HTML element. */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Sets the appearance of the entire webpage. */
 
 body {
     min-height: 100vh;
@@ -21,12 +32,14 @@ body {
     background: #06102d;
     background-image: radial-gradient(#19336b 1px, transparent 1px);
     background-size: 8px 8px;
-    color: white;
+    color: var(--white);
     font-family: 'Press Start 2P', monospace;
-    image-rendering: pixelated;
 }
 
-button, input {
+/* Makes buttons and input boxes use the same font as the page. */
+
+button,
+input {
     font-family: inherit;
 }
 
@@ -34,7 +47,13 @@ button {
     cursor: pointer;
 }
 
-/* MAIN CONTAINER */
+
+/* ==================================================
+   2. MAIN WEBSITE CONTAINER
+   ================================================== */
+
+/* Controls the main box that contains the entire game website.
+   Change max-width to make the website wider or narrower. */
 
 .game-container {
     max-width: 950px;
@@ -42,9 +61,12 @@ button {
     position: relative;
     overflow: hidden;
     background: var(--blue);
-    border: 6px solid white;
-    box-shadow: 8px 8px 0 #020817, 16px 16px 0 rgba(0,0,0,.3);
+    border: 6px solid var(--white);
+    box-shadow: 8px 8px 0 #020817, 16px 16px 0 rgba(0, 0, 0, 0.3);
 }
+
+/* Creates the subtle horizontal lines over the website
+   to give it an old-school screen appearance. */
 
 .game-container::after {
     content: "";
@@ -54,13 +76,18 @@ button {
     z-index: 5;
     background: repeating-linear-gradient(
         to bottom,
-        transparent 0px,
+        transparent 0,
         transparent 3px,
-        rgba(0,0,0,.045) 4px
+        rgba(0, 0, 0, 0.045) 4px
     );
 }
 
-/* TOP BAR */
+
+/* ==================================================
+   3. TOP BAR AND HEADER
+   ================================================== */
+
+/* Styles the small bar at the top of the website. */
 
 .top-bar {
     display: flex;
@@ -68,7 +95,7 @@ button {
     align-items: center;
     padding: 18px 20px;
     background: var(--dark-blue);
-    border-bottom: 5px solid white;
+    border-bottom: 5px solid var(--white);
     font-size: 10px;
 }
 
@@ -76,39 +103,62 @@ button {
     color: var(--yellow);
 }
 
-/* HEADER */
+/* Centers the main Retro League title and sports icons. */
 
 .header {
-    text-align: center;
-    padding: 40px 15px 35px;
     position: relative;
+    padding: 40px 15px 35px;
+    text-align: center;
 }
+
+/* Places the four sports icons in a horizontal row. */
 
 .floating-icons {
     display: flex;
     justify-content: space-around;
-    font-size: 27px;
     margin-bottom: 22px;
+    font-size: 27px;
 }
 
-.floating-icons span {
+/* Makes the sports icons move up and down. */
+
+.floating-icons span,
+.trophy {
     animation: float 1.8s steps(4) infinite alternate;
 }
 
-.floating-icons span:nth-child(2) { animation-delay: .3s; }
-.floating-icons span:nth-child(3) { animation-delay: .6s; }
-.floating-icons span:nth-child(4) { animation-delay: .9s; }
+/* Gives each icon a slightly different animation delay. */
 
-@keyframes float {
-    to { transform: translateY(-10px); }
+.floating-icons span:nth-child(2) {
+    animation-delay: 0.3s;
 }
 
+.floating-icons span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.floating-icons span:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+/* Defines how far the icons move during the animation. */
+
+@keyframes float {
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+/* Styles the stars above the main title. */
+
 .stars {
+    margin-bottom: 20px;
     color: var(--yellow);
     font-size: 18px;
     letter-spacing: 8px;
-    margin-bottom: 20px;
 }
+
+/* Styles the main RETRO LEAGUE heading. */
 
 h1 {
     font-size: clamp(28px, 6vw, 55px);
@@ -116,14 +166,21 @@ h1 {
     text-shadow: 5px 5px 0 var(--dark-blue), 8px 8px 0 #06143d;
 }
 
+/* Styles the small slogan below the title. */
+
 .subtitle {
+    margin-top: 20px;
     color: var(--yellow);
     font-size: 9px;
-    margin-top: 20px;
     line-height: 2;
 }
 
-/* SCOREBOARD */
+
+/* ==================================================
+   4. SCOREBOARD
+   ================================================== */
+
+/* Creates the yellow information bar below the header. */
 
 .scoreboard {
     display: flex;
@@ -131,56 +188,101 @@ h1 {
     padding: 16px;
     background: var(--yellow);
     color: var(--navy);
+    border-top: 5px solid var(--white);
+    border-bottom: 5px solid var(--white);
     font-size: 9px;
-    border-top: 5px solid white;
-    border-bottom: 5px solid white;
 }
 
-/* SELECTION SCREEN */
+
+/* ==================================================
+   5. PLAYER SELECTION SCREEN
+   ================================================== */
+
+/* Adds space around the player selection content. */
 
 .main-content {
     padding: 30px;
 }
 
+/* Separates each section of the player setup screen. */
+
 .section {
     margin-bottom: 35px;
 }
 
+/* Styles the numbered section headings. */
+
 .section h2 {
+    margin-bottom: 20px;
     color: var(--yellow);
     font-size: 12px;
     line-height: 1.8;
-    margin-bottom: 20px;
 }
 
-/* INPUT */
+/* Hides labels visually while keeping them available
+   to screen readers for accessibility. */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+/* Styles the player name input box. */
 
 input {
     width: 100%;
     padding: 20px;
     background: #06143d;
-    color: white;
-    border: 4px solid white;
-    font-size: 11px;
+    color: var(--white);
+    border: 4px solid var(--white);
     outline: none;
     box-shadow: 5px 5px 0 var(--navy);
+    font-size: 11px;
 }
+
+/* Changes the placeholder text color. */
 
 input::placeholder {
     color: #8298d6;
 }
 
+/* Highlights the input when the player clicks inside it. */
+
 input:focus {
     border-color: var(--yellow);
 }
 
-/* SPORT SELECTION */
+
+/* ==================================================
+   6. SPORT, DIVISION, AND TEAM SELECTION
+   ================================================== */
+
+/* Creates the grid that holds the four sports buttons. */
 
 .sports-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
 }
+
+/* Gives all selection buttons their shared appearance. */
+
+.sport-card,
+.division-card,
+.team-card {
+    background: var(--dark-blue);
+    color: var(--white);
+    border: 3px solid var(--white);
+    box-shadow: 4px 4px 0 var(--navy);
+    cursor: pointer;
+}
+
+/* Makes the sports buttons larger and stacks their icons
+   above their names. */
 
 .sport-card {
     display: flex;
@@ -190,103 +292,112 @@ input:focus {
     gap: 15px;
     min-height: 125px;
     padding: 22px 8px;
-    background: var(--dark-blue);
-    color: white;
-    border: 4px solid white;
-    font-size: 8px;
+    border-width: 4px;
     box-shadow: 5px 5px 0 var(--navy);
-    transition: .1s;
+    font-size: 8px;
+    transition: 0.1s;
 }
 
-.sport-card:hover,
-.team-card:hover,
-.division-card:hover {
-    background: #3978ff;
-    transform: translateY(-2px);
-}
-
-.sport-card.active,
-.team-card.active,
-.division-card.active {
-    background: var(--yellow);
-    color: var(--navy);
-}
+/* Changes the sport icon size. */
 
 .sport-icon {
     font-size: 32px;
 }
 
-/* DIVISIONS */
+/* Creates the division button grid. */
 
-.division-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.division-card {
-    min-height: 65px;
-    padding: 18px 8px;
-    background: var(--dark-blue);
-    color: white;
-    border: 3px solid white;
-    font-size: 10px;
-    box-shadow: 4px 4px 0 var(--navy);
-}
-
-/* TEAMS */
-
+.division-grid,
 .team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
 }
 
+/* Controls the size and spacing of division buttons. */
+
+.division-card {
+    min-height: 65px;
+    padding: 18px 8px;
+    font-size: 10px;
+}
+
+/* Controls the size and spacing of school buttons. */
+
 .team-card {
     min-height: 65px;
     padding: 17px 8px;
-    background: var(--dark-blue);
-    color: white;
-    border: 3px solid white;
     font-size: 8px;
     line-height: 1.8;
-    box-shadow: 4px 4px 0 var(--navy);
 }
 
-/* PLAYER PREVIEW */
+/* Adds a hover effect when the player moves the mouse
+   over a sport, division, or school button. */
+
+.sport-card:hover,
+.division-card:hover,
+.team-card:hover {
+    background: #3978ff;
+    transform: translateY(-2px);
+}
+
+/* Highlights the currently selected sport, division,
+   or school in yellow. */
+
+.sport-card.active,
+.division-card.active,
+.team-card.active {
+    background: var(--yellow);
+    color: var(--navy);
+}
+
+
+/* ==================================================
+   7. PLAYER PREVIEW CARD
+   ================================================== */
+
+/* Creates the dark box showing the player's selected team. */
 
 .player-preview {
     margin-top: 35px;
     padding: 25px 15px;
     background: #06143d;
-    border: 5px solid white;
-    text-align: center;
+    border: 5px solid var(--white);
     box-shadow: 6px 6px 0 var(--navy);
+    text-align: center;
 }
+
+/* Styles the preview card heading. */
 
 .preview-heading {
+    margin-bottom: 22px;
     color: var(--yellow);
     font-size: 10px;
-    margin-bottom: 22px;
 }
 
+/* Makes the trophy icon larger. */
+
 .trophy {
-    font-size: 42px;
     margin-bottom: 15px;
-    animation: float 1.5s steps(3) infinite alternate;
+    font-size: 42px;
 }
+
+/* Styles the selected school name. */
 
 .player-preview h3 {
     font-size: 17px;
     line-height: 1.8;
 }
 
+/* Styles the sport and career description. */
+
 .player-preview p {
+    margin-top: 12px;
     color: #9cb4ff;
     font-size: 8px;
-    margin-top: 12px;
     line-height: 2;
 }
+
+/* Places the player statistics in a horizontal row. */
 
 .preview-stats {
     display: flex;
@@ -298,7 +409,12 @@ input:focus {
     font-size: 8px;
 }
 
-/* BUTTONS */
+
+/* ==================================================
+   8. MAIN BUTTONS
+   ================================================== */
+
+/* Shared appearance for the main start buttons. */
 
 .start-button {
     display: block;
@@ -307,30 +423,41 @@ input:focus {
     padding: 23px 10px;
     background: var(--yellow);
     color: var(--navy);
-    border: 5px solid white;
-    font-size: 14px;
+    border: 5px solid var(--white);
     box-shadow: 0 7px 0 var(--navy);
-    transition: .1s;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.1s;
 }
 
+/* Changes the button when the mouse moves over it. */
+
 .start-button:hover {
-    background: white;
+    background: var(--white);
     transform: translateY(-3px);
 }
+
+/* Moves the button down when it is clicked. */
 
 .start-button:active {
     transform: translateY(5px);
     box-shadow: none;
 }
 
-/* SEASON DASHBOARD */
+
+/* ==================================================
+   9. SEASON DASHBOARD
+   ================================================== */
+
+/* Controls the background and spacing of the dashboard. */
 
 .season-screen {
     min-height: 650px;
     padding: 25px;
     background: var(--blue);
-    color: white;
 }
+
+/* Places the dashboard title and season badge side by side. */
 
 .season-header {
     display: flex;
@@ -338,14 +465,18 @@ input:focus {
     align-items: center;
     gap: 15px;
     padding-bottom: 25px;
-    border-bottom: 4px solid white;
+    border-bottom: 4px solid var(--white);
 }
 
+/* Styles the small career mode label. */
+
 .pixel-label {
+    margin-bottom: 15px;
     color: var(--yellow);
     font-size: 8px;
-    margin-bottom: 15px;
 }
+
+/* Styles the dashboard title. */
 
 .season-header h2 {
     font-size: 19px;
@@ -353,18 +484,22 @@ input:focus {
 }
 
 .season-header p:last-child {
-    font-size: 8px;
     margin-top: 12px;
+    font-size: 8px;
 }
+
+/* Styles the season badge. */
 
 .season-badge {
     padding: 15px;
     background: var(--yellow);
     color: var(--navy);
-    border: 3px solid white;
+    border: 3px solid var(--white);
     font-size: 9px;
     white-space: nowrap;
 }
+
+/* Displays division, week, and record in three columns. */
 
 .season-week {
     display: grid;
@@ -374,7 +509,7 @@ input:focus {
     padding: 20px 10px;
     background: var(--yellow);
     color: var(--navy);
-    border: 4px solid white;
+    border: 4px solid var(--white);
     text-align: center;
 }
 
@@ -383,11 +518,16 @@ input:focus {
 }
 
 .season-week h3 {
-    font-size: 11px;
     margin-top: 12px;
+    font-size: 11px;
 }
 
-/* DASHBOARD GRID */
+
+/* ==================================================
+   10. DASHBOARD PANELS
+   ================================================== */
+
+/* Creates two columns for the dashboard information panels. */
 
 .dashboard-grid {
     display: grid;
@@ -395,26 +535,37 @@ input:focus {
     gap: 16px;
 }
 
+/* Gives all dashboard panels the same dark appearance. */
+
 .dashboard-panel {
     min-width: 0;
     padding: 18px;
-    background: #071641;
-    border: 4px solid white;
+    background: var(--navy);
+    border: 4px solid var(--white);
     box-shadow: 5px 5px 0 var(--dark-blue);
 }
 
+/* Styles the headings inside dashboard panels. */
+
 .dashboard-panel h3 {
+    margin-bottom: 20px;
     color: var(--yellow);
     font-size: 10px;
-    margin-bottom: 20px;
     line-height: 1.8;
 }
+
+/* Makes the next matchup panel take up both columns. */
 
 .matchup-panel {
     grid-column: span 2;
 }
 
-/* MATCHUP */
+
+/* ==================================================
+   11. NEXT MATCHUP PANEL
+   ================================================== */
+
+/* Places the two teams and VS text in a row. */
 
 .matchup-content {
     display: flex;
@@ -423,6 +574,8 @@ input:focus {
     gap: 10px;
     text-align: center;
 }
+
+/* Gives both teams equal space. */
 
 .matchup-team {
     flex: 1;
@@ -433,22 +586,28 @@ input:focus {
     font-size: 30px;
 }
 
+/* Styles the team names. */
+
 .matchup-team h2 {
+    margin: 12px 0;
     font-size: 10px;
     line-height: 2;
-    margin: 12px 0;
     overflow-wrap: anywhere;
 }
 
 .matchup-team small {
-    font-size: 7px;
     color: #a9baff;
+    font-size: 7px;
 }
+
+/* Styles the VS text between the teams. */
 
 .versus {
     color: var(--yellow);
     font-size: 15px;
 }
+
+/* Displays the matchup week information. */
 
 .matchup-info {
     display: flex;
@@ -459,28 +618,35 @@ input:focus {
     font-size: 8px;
 }
 
+/* Styles the next game button. */
+
 .dashboard-start {
     width: 100%;
     margin-top: 15px;
     padding: 20px 10px;
     background: var(--yellow);
     color: var(--navy);
-    border: 4px solid white;
-    font-size: 12px;
+    border: 4px solid var(--white);
     box-shadow: 0 5px 0 var(--dark-blue);
+    font-size: 12px;
 }
 
 .dashboard-start:hover {
-    background: white;
+    background: var(--white);
     transform: translateY(-2px);
 }
 
 .dashboard-start:disabled {
-    opacity: .5;
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
-/* TEAM STATUS */
+
+/* ==================================================
+   12. TEAM STATUS
+   ================================================== */
+
+/* Places each status label and percentage on opposite sides. */
 
 .status-item {
     display: flex;
@@ -494,46 +660,63 @@ input:focus {
     color: var(--yellow);
 }
 
+/* Creates the dark background behind each status bar. */
+
 .status-bar {
     height: 15px;
     background: black;
-    border: 2px solid white;
+    border: 2px solid var(--white);
 }
+
+/* Controls the colored part of each status bar.
+   JavaScript can change its width to show a percentage. */
 
 .status-bar div {
-    height: 100%;
     width: 75%;
+    height: 100%;
     background: var(--yellow);
-    transition: width .3s;
+    transition: width 0.3s;
 }
 
-/* STANDINGS */
+
+/* ==================================================
+   13. STANDINGS AND SCHEDULE
+   ================================================== */
+
+/* Uses the same three-column layout for standings headings
+   and the individual team rows. */
 
 .standings-heading,
 .standing-row {
     display: grid;
     grid-template-columns: 1fr 30px 30px;
-    gap: 5px;
     align-items: center;
+    gap: 5px;
     padding: 11px 3px;
     font-size: 7px;
 }
 
+/* Styles the standings column labels. */
+
 .standings-heading {
     color: var(--yellow);
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--white);
 }
+
+/* Adds a line between each team. */
 
 .standing-row {
     border-bottom: 1px solid #304577;
 }
+
+/* Highlights the player's team in the standings. */
 
 .standing-row.active {
     background: var(--dark-blue);
     color: var(--yellow);
 }
 
-/* SCHEDULE */
+/* Places each schedule game's information on one row. */
 
 .schedule-game {
     display: flex;
@@ -550,7 +733,12 @@ input:focus {
     color: var(--yellow);
 }
 
-/* DASHBOARD FOOTER */
+
+/* ==================================================
+   14. DASHBOARD BOTTOM
+   ================================================== */
+
+/* Places the school information and change-team button together. */
 
 .dashboard-bottom {
     display: flex;
@@ -560,7 +748,7 @@ input:focus {
     margin-top: 25px;
     padding: 20px;
     background: var(--dark-blue);
-    border: 4px solid white;
+    border: 4px solid var(--white);
 }
 
 .dashboard-bottom small {
@@ -574,26 +762,35 @@ input:focus {
     line-height: 1.8;
 }
 
+/* Styles the change-team button. */
+
 .dashboard-back {
     padding: 13px;
     background: var(--red);
-    color: white;
-    border: 3px solid white;
+    color: var(--white);
+    border: 3px solid var(--white);
     font-size: 8px;
 }
 
-/* FOOTBALL GAME SCREEN */
+
+/* ==================================================
+   15. FOOTBALL GAME SCREEN
+   ================================================== */
+
+/* Sets the background and spacing for the football game. */
 
 .game-screen {
     min-height: 600px;
     padding: 25px;
-    background: #071641;
+    background: var(--navy);
 }
+
+/* Centers the game title and team names. */
 
 .game-top {
     margin-bottom: 25px;
-    text-align: center;
     color: var(--yellow);
+    text-align: center;
 }
 
 .game-top h2 {
@@ -603,11 +800,16 @@ input:focus {
 
 .game-top p {
     margin-top: 10px;
-    color: white;
+    color: var(--white);
     font-size: 10px;
 }
 
-/* GAME SCOREBOARD */
+
+/* ==================================================
+   16. FOOTBALL SCOREBOARD
+   ================================================== */
+
+/* Creates four columns for the game information. */
 
 .game-scoreboard {
     display: grid;
@@ -620,6 +822,8 @@ input:focus {
     text-align: center;
 }
 
+/* Stacks each scoreboard label above its number. */
+
 .game-scoreboard div {
     display: flex;
     flex-direction: column;
@@ -631,12 +835,17 @@ input:focus {
     font-size: 20px;
 }
 
-/* GAME INTRO */
+
+/* ==================================================
+   17. GAME INTRODUCTION
+   ================================================== */
+
+/* Styles the screen shown before a football game begins. */
 
 .game-intro {
     padding: 50px 15px;
     background: var(--dark-blue);
-    border: 4px solid white;
+    border: 4px solid var(--white);
     text-align: center;
 }
 
@@ -651,14 +860,21 @@ input:focus {
     line-height: 2.5;
 }
 
-/* FOOTBALL FIELD */
+
+/* ==================================================
+   18. FOOTBALL FIELD
+   ================================================== */
+
+/* Creates the area around the football field. */
 
 .field-container {
     width: 100%;
     overflow: hidden;
     background: #178b38;
-    border: 5px solid white;
+    border: 5px solid var(--white);
 }
+
+/* Controls how the JavaScript football drawing fits the page. */
 
 #footballCanvas {
     display: block;
@@ -668,6 +884,8 @@ input:focus {
     touch-action: none;
 }
 
+/* Displays messages during the football game. */
+
 .game-message {
     padding: 20px 5px;
     color: var(--yellow);
@@ -676,13 +894,18 @@ input:focus {
     text-align: center;
 }
 
-/* GAME CONTROLS */
+
+/* ==================================================
+   19. GAME CONTROLS AND BACK BUTTON
+   ================================================== */
+
+/* Creates the box explaining how to play. */
 
 .game-controls {
     margin-top: 15px;
     padding: 18px;
     background: var(--dark-blue);
-    border: 3px solid white;
+    border: 3px solid var(--white);
     text-align: center;
 }
 
@@ -697,22 +920,29 @@ input:focus {
     line-height: 2.5;
 }
 
+/* Styles the button that returns to the career dashboard. */
+
 .back-button {
     width: 100%;
     margin-top: 20px;
     padding: 17px;
     background: var(--red);
-    color: white;
-    border: 3px solid white;
+    color: var(--white);
+    border: 3px solid var(--white);
     font-size: 9px;
 }
 
-/* FOOTER */
+
+/* ==================================================
+   20. WEBSITE FOOTER
+   ================================================== */
+
+/* Styles the bottom of the Retro League website. */
 
 .footer {
     padding: 20px;
     background: var(--dark-blue);
-    border-top: 5px solid white;
+    border-top: 5px solid var(--white);
     color: var(--yellow);
     font-size: 8px;
     line-height: 2.5;
@@ -720,9 +950,16 @@ input:focus {
 }
 
 
-/* RESPONSIVE DESIGN */
+/* ==================================================
+   21. RESPONSIVE DESIGN: PHONES AND TABLETS
+   ================================================== */
+
+/* These rules activate when the screen is 650 pixels wide
+   or smaller. They make the website easier to use on phones. */
 
 @media (max-width: 650px) {
+
+    /* Reduces the space around the website. */
     body {
         padding: 12px 8px;
     }
@@ -731,18 +968,18 @@ input:focus {
         padding: 18px;
     }
 
+    /* Displays two sports per row instead of four. */
     .sports-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+    /* Displays two schools and divisions per row. */
+    .team-grid,
     .division-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* Makes the top bars smaller. */
     .top-bar {
         padding: 14px 10px;
         font-size: 7px;
@@ -765,6 +1002,7 @@ input:focus {
         font-size: 11px;
     }
 
+    /* Makes the dashboard fit smaller screens. */
     .season-screen {
         padding: 14px;
     }
@@ -778,6 +1016,7 @@ input:focus {
         font-size: 7px;
     }
 
+    /* Changes dashboard panels from two columns to one. */
     .dashboard-grid {
         grid-template-columns: 1fr;
     }
@@ -798,6 +1037,7 @@ input:focus {
         font-size: 6px;
     }
 
+    /* Stacks the dashboard footer vertically. */
     .dashboard-bottom {
         flex-direction: column;
         align-items: stretch;
@@ -807,6 +1047,7 @@ input:focus {
         padding: 12px;
     }
 
+    /* Makes the scoreboard numbers smaller on phones. */
     .game-scoreboard {
         padding: 10px 3px;
     }
@@ -829,14 +1070,23 @@ input:focus {
     }
 }
 
+
+/* ==================================================
+   22. RESPONSIVE DESIGN: VERY SMALL PHONES
+   ================================================== */
+
+/* Extra adjustments for screens 360 pixels wide or smaller. */
+
 @media (max-width: 360px) {
+
+    /* Gives each school button its own row. */
     .team-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Reduces spacing between player statistics. */
     .preview-stats {
         gap: 10px;
         font-size: 7px;
     }
 }
-
